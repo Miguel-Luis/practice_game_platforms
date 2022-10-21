@@ -12,8 +12,8 @@ public class JohnMovement : MonoBehaviour
     private Animator Animator;
     private float Horizontal;
     private bool Grounded;
-    private bool Front;
     private float LastShoot;
+    private int Health = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -82,5 +82,12 @@ public class JohnMovement : MonoBehaviour
 
             LastShoot = Time.time;
         }
+    }
+
+    public void Hit()
+    {
+        Health--;
+
+        if (Health == 0) Destroy(gameObject);
     }
 }
